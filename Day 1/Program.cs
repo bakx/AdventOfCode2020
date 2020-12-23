@@ -22,14 +22,22 @@ namespace Day1
             foreach (int i in items)
             {
                 foreach (int j in items)
-                {
-                    if (i + j != 2020)
+                { 
+                    if (i + j == 2020)
                     {
-                        continue;
+                        Console.WriteLine($"The answer for part #1 is {i} * {j} = {i * j} ");
                     }
 
-                    Console.WriteLine($"The answer is {i} * {j} = {i * j} ");
-                    break;
+                    foreach (int k in items)
+                    {
+                        if (i + j + k != 2020)
+                        {
+                            continue;
+                        }
+
+                        Console.WriteLine($"The answer for part #2 is {i} * {j} * {k} = {i * j * k} ");
+                        break;
+                    }
                 }
             }
         }
