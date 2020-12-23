@@ -10,19 +10,25 @@ namespace Day1
         {
             // Read entries
             StreamReader reader = new StreamReader("input.txt");
-            int[] items = reader.ReadToEnd().Split(Environment.NewLine).Select(int.Parse).ToArray();
+            
+            int[] items = reader
+                .ReadToEnd()
+                .Split(Environment.NewLine)
+                .Select(int.Parse)
+                .ToArray();
+
             reader.Close();
 
-            for (int i = 0; i < items.Count(); i++)
+            foreach (int i in items)
             {
-                for (int j = 0; j < items.Count(); j++)
+                foreach (int j in items)
                 {
-                    if (items[i] + items[j] != 2020)
+                    if (i + j != 2020)
                     {
                         continue;
                     }
 
-                    Console.WriteLine($"The answer is {items[i]} * {items[j]} = {items[i] * items[j]} ");
+                    Console.WriteLine($"The answer is {i} * {j} = {i * j} ");
                     break;
                 }
             }
